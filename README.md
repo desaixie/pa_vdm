@@ -9,6 +9,7 @@ Stony Brook University, Adobe Research
 
 ## News
 - **[05/11/2025]** The training and inference code based on Open-Sora v1.2 are released.
+- **[05/11/2025]** Our testing data is released.
 
 ## Codebase
 You can `diff` this codebase with [this Open-Sora commit](https://github.com/hpcaitech/Open-Sora/tree/a29424c2373339ffe60193e009702dd03da06350) to see what we modified in PA-VDM. The core implementation differences are in `opensora/schedulers/rf/__init__.py` `opensora/models/layers/blocks.py`, `scripts/inference.py`, `opensora/schedulers/rf/rectified_flow.py`, `opensora/models/stdit/stdit3.py`.
@@ -22,7 +23,7 @@ New training/inference configs:
 We release our testing set of 40 real videos and text prompts.
 The text prompts are in `pavdm/test_data/all_prompts.txt`.
 Each line correspond to one video, in the format `text_prompt||video_file_path.mp4`.
-- [ ] Huggingface video download instructions
+The videos can be downloaded from this [huggingface dataset](https://huggingface.co/datasets/desaix/pavdm_test_test). The video filenames, e.g. artgallery_s0_16f_320x176.mp4, include the staring frame number `s0` from the raw video, the length of the video clip `16f`, and the resolution `320x176`. If you want to test at different resolutions, using different number of frames as initial condition, etc., you can extract new video clips using the same starting frame number (0th frame for artgallery.webm) from the corresponding raw videos located in the `raw/` folders.
 
 ## Inference
 OpenSora's naive autoregressive long video extension with mask
